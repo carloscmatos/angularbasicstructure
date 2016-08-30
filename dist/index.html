@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app="app">
+    
+    <!-- BEGIN HEADD -->
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible", content="IE=edge,chrome=1">
+        <meta name="viewport", content="width=device-width, initial-scale=1.0">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">    
+        <link rel="shortcut icon" type="image/png" href="assets/img/favico.png"/>
+        <!-- prerender -->
+        <meta name="fragment" content="!">    
+
+        <!-- enable html5mode routes -->
+        <base href="/">
+
+        <!-- Canonical Link -->
+        <meta ng-bind="robots" name="robots" content="{{seo.indextag}}">
+        <link ng-bind="canonical" rel="canonical" href= "{{seo.canonical}}"/>
+
+        <!-- BEGIN SEO META -->
+        <title ng-bind="seo.title"> </title>
+        <meta ng-bind="description" name="description" content="{{ seo.description }}" />
+        <meta ng-bind="author" name="author" content="humans.txt">
+        <!-- END SEO META -->
+
+        <!-- BEGIN STYLES -->
+        <link rel="stylesheet" type="text/css" href="assets/app.css">
+        <!-- END STYLES -->
+    </head>
+    <!-- END HEAD -->
+
+    <body> 
+
+        <!-- where ui-router load the views -->
+        <div ui-view></div>
+
+        <!-- BEGIN FOOTER -->
+        <footer ng-include src="'app/views/footer/footer.html'"></footer>   
+        <!-- END FOOTER -->     
+
+        <!-- JS -->
+        <script async src="assets/app.js"></script>
+        <!-- Cod Acomp. Google -->
+
+        <!-- INSERT YOUT GOOGLE ANALYTICS HERE -->
+        
+  </body>
+</html>
