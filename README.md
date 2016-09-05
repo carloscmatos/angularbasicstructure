@@ -34,9 +34,9 @@
 - Put your images in the [image](./client/app/assets/img) folder
 
 - The [index.html](./client/index.html) is ready to receive SEO tags like:
-	*```$scope.seo.title = 'Quick Start | Get Example';```
-    *```$scope.seo.description = 'Angular 1 quick start - Get Example.';```
-    *```$scope.seo.breadcrumb = [];```
-    *```$scope.seo.indextag = "noindex, nofollow";```
-    *```$scope.seo.canonical = "http://www.angualrquickstart.com.br";```
+	* ```$scope.seo.title = 'Quick Start | Get Example';```
+    * ```$scope.seo.description = 'Angular 1 quick start - Get Example.';```
+    * ```$scope.seo.breadcrumb = [];```
+    * ```$scope.seo.indextag = "noindex, nofollow";```
+    * ```$scope.seo.canonical = "http://www.angualrquickstart.com.br";```
 - Usem them if you wish, otherwise, you can delete them from your [index.html](./client/index.html) file
