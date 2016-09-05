@@ -1,12 +1,4 @@
+/dist/
 /node_modules/
-angular.xcodeproj
-.idea
-*~
-*.swp
-*.iml
-.agignore
-.lvimrc
-libpeerconnection.log
+/bower_components/
 npm-debug.log
-/tmp/
-/scripts/bower/bower-*
