@@ -18,3 +18,15 @@
 	* ```$ node server/app.js```
 - Check if everything is runnink OK in your browser
 	* ```localhost:8000```
+
+
+## Coding details
+
+- Your coding folder is [client](./client/app)
+- File [app.js](./client/app/app.js) is where your routes(states) will be, there are three state examples.
+	* State otherwise is the one that will keep your path and render your 404 page.
+- Inside [views](./client/app/views) create your static views, I usually put there all views that will be called via include in different pages.
+- Create your folders according to your funcionalyties (there are 2 examples, main and getexample), mais is usually your homepage but it is not mandatory to be called like that.
+	* You must keep the module named "app" in the [main.js](./client/app/main/main.js) file
+- After you create each module folder, you must include its name in [main.js](./client/app/main/main.js) file
+- Put your images in the [image](./client/app/assets/img) folder
