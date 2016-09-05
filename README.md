@@ -24,7 +24,6 @@
 
 - Your coding folder is [client](./client/app)
 - File [index.html](./client/index.html) is where you ui-route is called, if you have any include that goes to every single page, you cann add it here, otherwise, add it in each html.
-	* This 
 - File [app.js](./client/app/app.js) is where your routes(states) will be, there are three state examples.
 	* State otherwise is the one that will keep your path and render your 404 page.
 - Inside [views](./client/app/views) create your static views, I usually put there all views that will be called via include in different pages.
@@ -39,4 +38,4 @@
     * ```$scope.seo.breadcrumb = [];```
     * ```$scope.seo.indextag = "noindex, nofollow";```
     * ```$scope.seo.canonical = "http://www.angualrquickstart.com.br";```
-- Usem them if you wish, otherwise, you can delete them from your [index.html](./client/index.html) file
+	- Usem them if you wish, otherwise, you can delete them from your [index.html](./client/index.html) file
