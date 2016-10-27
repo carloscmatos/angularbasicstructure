@@ -6,8 +6,8 @@ angular.module('getexample',[
 
   return $resource(envService.read('apiUrl') + '/staticpath/:action/:slug/', {slug:'@slug'}, 
   {
-    active: {
-        method: 'GET',
+    update: {
+        method: 'PUT',
         params: {action:'actionexample'}
     }
   });
