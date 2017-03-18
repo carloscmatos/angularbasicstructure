@@ -15,22 +15,12 @@ angular.module('app', [
 	// set the domains and variables for each environment - if you are using GET to retrieve informations
 	envServiceProvider.config({
 		domains: {
-			localhost: ['localhost'],
-			development: ['dev.yourwebsite.com'],
-			staging: ['staging.yourwebsite.com'],
+			development: ['localhost'],
 			production: ['yourwebsite.com, www.yourwebsite.com']
 		},
 		vars: {
-			localhost: {
-				apiUrl: 'http://api-dev.yourapiprovider.com.br',
-				apiToken: 'apitoken'
-			},			
 			development: {
 				apiUrl: 'http://api-dev.yourapiprovider.com.br',
-				apiToken: 'apitoken'
-			},
-			staging: {
-				apiUrl: 'http://api-staging.yourapiprovider.com.br',
 				apiToken: 'apitoken'
 			},
 			production: {
@@ -43,18 +33,40 @@ angular.module('app', [
 
 .config(['$httpProvider', 'envServiceProvider', function($httpProvider, envServiceProvider){
 	'use strict';
-
-	$httpProvider.interceptors.push(function($q) {
+	$httpProvider.defaults.useXDomain = true;
+    // delete $httpProvider.defaults.headers.common['X-Requested-With'];
+	
+	// Code bellow sets all behaviors on all calls, for headers and calls errors tretaments
+	$httpProvider.interceptors.push(function($q, $cookies, $location, $rootScope) {
 		return {
 			'request': function(config) {
-				if(config.url != 'http://ipv4.myexternalip.com/json'){
-					config.headers['Authorization'] = 'Token ' + envServiceProvider.read('apiToken');
-				}
+				// Configurates header "token" to user in all calls, token is stored in user cookie (check app/login/login.js)
+				config.headers['token'] = envServiceProvider.read('apiToken');
 				return config;
-			}
+			},
+			'response': function(response) {
+				// $location.path('/')
+
+				return response;
+			},
+			'requestError': function(rejection) {
+				// SE ALGUMA CHAMADA REJEITADA, ENVIA PARA LOGIN E REMOVE COOKIE
+		     	// $location.path('/');
+		     	// $cookies.remove('accessToken');
+		     	alert('requestError');
+
+		      return $q.reject(rejection);
+		    },
+		    'responseError': function(rejection) {
+		    	// SE ALGUMA CHAMADA REJEITADA, ENVIA PARA LOGIN E REMOVE COOKIE
+		     	// $location.path('/');
+		     	// $cookies.remove('accessToken');
+		     	alert('responseError');
+
+		      return $q.reject(rejection);
+		    },
 		};
 	});
-
 }])
 
 .config(['$resourceProvider', function($resourceProvider) {
@@ -67,9 +79,7 @@ angular.module('app', [
 .config(['$urlRouterProvider', '$locationProvider', function ($urlRouterProvider, $locationProvider) {
 	'use strict';
 	$locationProvider.html5Mode(true); // allow html5mode routes (no #)
-	$urlRouterProvider.otherwise(function($injector, $location){
-    	$injector.get('$state').go('404');
-	}); // if route not found redirect to /
+	$urlRouterProvider.otherwise('/');
 }])
 
 // Insert your routes here

@@ -13,7 +13,7 @@ var revReplace = require('gulp-rev-replace');
 var sourcemaps = require('gulp-sourcemaps');
 
 var slack_config = {
-  hook_url: 'https://hooks.slack.com/services/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'
+  hook_url: 'HOOK-STRING'
 };
 var env_config = process.env;
 
